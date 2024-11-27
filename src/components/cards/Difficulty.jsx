@@ -28,8 +28,8 @@ const Difficulty = () => {
           paddingLeft: 24,
           paddingRight: 24,
           background: "white",
-          boxShadow: "0px 2px 12px rgba(0, 0, 0, 0.25)",
           borderRadius: 10,
+          boxShadow: "0px 2px 12px rgba(0, 0, 0, 0.25)",
           border: "2px #5C9AFF solid",
           justifyContent: "flex-start",
           alignItems: "center",
@@ -99,12 +99,15 @@ const Difficulty = () => {
       </div>
 
       {/* Dialog with Difficulty Selector */}
-      <Dialog style={{
-        borderRadius: '10px',
-        border: '4px solid var(--logo-gr-Blue-to-pink, #D388FF)',
-        boxShadow: '0px 0px 8px 0px #D388FF',
-      }}
+      <Dialog sx={{
+          "& .MuiDialog-paper": {
+            border: "4px solid var(--logo-gr-Blue-to-pink, #D388FF)",
+            borderRadius: '10px', 
+            boxShadow: "0px 0px 8px #D388FF",
+          },
+        }}
         open={open} onClose={toggleDialog}>
+
         <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 24, paddingRight: 24 }}>
           <div style={{width: 'fit-content'}}>
             <svg onClick={toggleDialog} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" style={{ alignSelf: "flex-end" }}>

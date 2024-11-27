@@ -1,8 +1,89 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import Select from 'react-select';
+import { display, fontSize, fontWeight } from '@mui/system';
 
 const Duration = () => {
+  const [open, setOpen] = useState(false); // State to control dialog visibility
+  const [duration, setDuration] = useState('90'); // State for selected duration
+
+  const options = [
+    { value: '60', label: '60 sec' },
+    { value: '90', label: '90 sec' },
+    { value: '120', label: '120 sec' },
+  ];
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: '#f9f9f9',
+      borderColor: '#ddd',
+      color: '#333',
+      height: '48px',
+      fontSize: '16px',
+      boxShadow: 'none',
+      display: 'flex',
+      justifyContent: 'flex-start', // Aligns the label/content to the left
+      alignItems: 'center',          // Vertically aligns the content
+      paddingRight: '35px',          // Leave space for the dropdown indicator
+      ':hover': {
+        borderColor: '#aaa',
+      },
+    }),
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      width: '20px',                    // Set the width of the dropdown indicator
+    height: '20px',
+      position: 'absolute',            // Positions the indicator inside the select box
+      color: '#0072DC',                // Custom arrow color
+      top: '30%',                      // Centers vertically inside the select
+      right: '15px',                   // Adjusts the position from the right
+      padding: '0',                    // Removes extra padding around the indicator
+    }),
+    indicatorSeparator: () => ({
+      display: 'none', // Removes the separator line
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: '#ffffff',
+      border: '1px solid #ddd',
+      borderRadius: '4px',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: '#161616',
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: '#161616',
+      fontFamily: 'SF UI  Text',
+      fontWeight: 'bold',
+      fontSize: '18px',
+    }),
+    overflow: 'hidden',
+  };
+  
+  
+
+  
+  // Toggle the dialog visibility
+  const toggleDialog = () => {
+    setOpen(!open);
+  };
+
+  // Handle select change
+  const handleChange = (selectedOption) => {
+    setDuration(selectedOption.value);
+    console.log(`Selected Duration: ${selectedOption.label}`);
+  };
+
   return (
-    <div className="SelectionPanel" style={{ width: 425.47, height: 106, paddingLeft: 24, paddingRight: 24, background: 'white', boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: '2px #5C9AFF solid', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'inline-flex' }}>
+    <>
+      {/* Selection Panel */}
+      <div className="SelectionPanel"
+    onClick={toggleDialog}
+     style={{ width: 425.47, height: 106, paddingLeft: 24, paddingRight: 24, background: 'white', boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: '2px #5C9AFF solid', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'inline-flex' }}>
       <div className="Frame1000008202" style={{ flex: '1 1 0', height: 106, paddingTop: 8, paddingBottom: 8, justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
         <svg style={{ width: "fit-content" }} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
           <g clip-path="url(#clip0_13_56)">
@@ -41,8 +122,82 @@ const Duration = () => {
         </div>
       </div>
       </div>
-    </div>
-  )
-}
+      </div>
 
-export default Duration
+      {/* Dialog */}
+      <Dialog
+        open={open}
+        onClose={toggleDialog}
+        sx={{
+          "& .MuiDialog-paper": {
+            border: "4px solid #D388FF",
+            borderRadius: '10px',
+            boxShadow: "0px 0px 8px #D388FF",
+            padding: '24px'
+          },
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <div style={{width: 'fit-content'}}>
+          <svg
+            onClick={toggleDialog}
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            style={{ cursor: 'pointer' }}
+          >
+            <path
+              d="M28.8336 3.16676C27.8211 2.1542 26.1795 2.1541 25.1669 3.16655L15.9987 12.3334L6.83302 3.16687C5.82052 2.15428 4.17885 2.15428 3.16635 3.16687V3.16687C2.15398 4.17933 2.15398 5.82075 3.16635 6.83321L12.3324 16L3.16635 25.1669C2.15398 26.1793 2.15398 27.8208 3.16635 28.8332V28.8332C4.17885 29.8458 5.82052 29.8458 6.83302 28.8332L15.9987 19.6667L25.1669 28.8335C26.1795 29.846 27.8211 29.8459 28.8336 28.8333V28.8333C29.846 27.8208 29.846 26.1793 28.8336 25.1668L19.6676 16L28.8336 6.83332C29.846 5.8208 29.846 4.17928 28.8336 3.16676V3.16676Z"
+              fill="#0072DC"
+            />
+          </svg>
+          </div>
+        </div>
+        <DialogTitle
+          style={{
+            textAlign: 'center',
+            color: '#333232',
+            fontSize: 32,
+            fontFamily: 'SF UI Text',
+            fontWeight: 600,
+            padding: 0,
+          }}
+        >
+          Duration per question
+        </DialogTitle>
+
+        <div
+          style={{
+            width: '100%',
+            paddingBottom: '56px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            margin: '0 auto',
+            gap: 20,
+          }}
+        >
+          
+          <hr style={{width:'100%', margin: '16px 0'}} />
+
+          <Select
+            defaultValue={options.find((opt) => opt.value === duration)}
+            options={options}
+            styles={customStyles}
+            onChange={handleChange}
+            placeholder="Select time"
+          />
+        </div>
+      </Dialog>
+    </>
+  );
+};
+
+export default Duration;
