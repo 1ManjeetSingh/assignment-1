@@ -41,8 +41,6 @@
     max-width: 657px;
 }
 
-
-
 .searchBar>input {
     width: 100%;
     max-width: 657px;
@@ -55,8 +53,12 @@
     border: none;
     background: none;
 }
+.searchBar>input:hover {
+    cursor: pointer;
+}
 .searchBar>input:focus{
     outline: none;
+    color: #353535;
 }
 
 .searchBar>svg {

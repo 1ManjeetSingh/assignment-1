@@ -40,7 +40,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className="Profile" style={{ justifyContent: 'flex-start', alignItems: 'center', display: 'flex' }}>
-                            <img className="AvatarPic" style={{ width: 44, height: 44, background: 'linear-gradient(0deg, white 0%, white 100%)', borderRadius: 9999 }} src={image3} />
+                            <img className="AvatarPic" style={{ width: 44, minWidth: 44, marginRight: -25, height: 44, background: 'none', borderRadius: 9999 }} src={image3} />
                         </div>
                     </div>
                     <div className="Ai" style={{ width: 60, height: 60 }}>
