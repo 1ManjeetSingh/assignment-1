@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <div>
             <div className="NavBar" style={{ width: '100%', height: '100%', paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, background: 'white', border: '1px #D2D2D2 solid', backdropFilter: 'blur(220px)', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex' }}>
-                <div className="Group1000007785" style={{ width: 130, height: 46, position: 'relative' }}>
+                <div className=".logo-container" style={{ width: 130, height: 46, position: 'relative' }}>
                     <div className="Rectangle7391" style={{ width: 130, height: 46, left: 0, top: 0, position: 'absolute', background: '#0F0F36', borderRadius: 15 }} />
                     <div className="logo" style={{ width: 100, height: 30.22, left: 15, top: 8, position: 'absolute' }}>
                         <img className="Aspireit" src={image1} />
@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="Frame1000008205" style={{ justifyContent: 'flex-start', alignItems: 'center', gap: 24, display: 'flex' }}>
-                    <div className="Frame1000008204" style={{ paddingLeft: 16, paddingTop: 8, paddingBottom: 8, background: '#EBEBEB', boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)', borderRadius: 40, backdropFilter: 'blur(4px)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
+                    <div className="Frame1000008204" style={{ paddingLeft: 16, paddingTop: 8, paddingRight: 16, paddingBottom: 8, background: '#EBEBEB', boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)', borderRadius: 40, backdropFilter: 'blur(4px)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
                         <div className="ButtonsNotification" style={{ width: 44, height: 44, marginRight: 16, position: 'relative' }}>
                             <div className="Ellipse" style={{ width: 44, height: 44, left: 0, top: 0, position: 'absolute', background: 'white', borderRadius: 9999 }} />
                             <div className="IconsBell" style={{ width: 24, height: 24, left: 10, top: 10, position: 'absolute' }}>
@@ -44,7 +44,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="Ai" style={{ width: 60, height: 60, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                        <img className="Layila" style={{ width: 60, height: 60, background: 'linear-gradient(0deg, #D9D9D9 0%, #D9D9D9 100%)', boxShadow: '0px 0px 8px 3px rgba(0, 0, 0, 0.35)', borderRadius: 9999 }} src={image4} />
+                        <img className="Layila" style={{ width: 70, height: 70, background: 'none', borderRadius: 9999 }} src={image4} />
                     </div>
                 </div>
             </div>

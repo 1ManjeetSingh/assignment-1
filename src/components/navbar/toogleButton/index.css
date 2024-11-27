@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.toogleIcon {
+    width: 26px;
+    height: 28.545px;
+    margin-right: 10px;
+    background: none;
+}
+
+
+.nonTechnical,.technical {
+    width: fit-content;
+    padding: 16px 30px;
+    font-size: 18px;
+}
+
+.toogleContainer {
+    width: fit-content;
+}
+
