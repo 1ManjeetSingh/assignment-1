@@ -10,14 +10,14 @@ const Navbar = () => {
     return (
         <div>
             <div className="NavBar" style={{ width: '100%', height: '100%', paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, background: 'white', border: '1px #D2D2D2 solid', backdropFilter: 'blur(220px)', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex' }}>
-                <div className=".logo-container" style={{ width: 130, height: 46, position: 'relative' }}>
+                <div className="logo-container" style={{ width: 130, height: 46, position: 'relative' }}>
                     <div className="Rectangle7391" style={{ width: 130, height: 46, left: 0, top: 0, position: 'absolute', background: '#0F0F36', borderRadius: 15 }} />
                     <div className="logo" style={{ width: 100, height: 30.22, left: 15, top: 8, position: 'absolute' }}>
                         <img className="Aspireit" src={image1} />
                         <img className="Group1000007770" src={image2} />
                     </div>
                 </div>
-                <div className="SearchBar" style={{ justifyContent: 'center', alignItems: 'center', gap: 16, display: 'flex' }}>
+                <div className="SearchBarContainer" style={{ justifyContent: 'center', alignItems: 'center', gap: 16, display: 'flex' }}>
                     <div className='InputContainer' style={{height: 56, maxWidth: 657, paddingLeft: 24, paddingRight: 24, paddingTop: 16, paddingBottom: 16, background: '#EBEBEB', boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)', borderRadius: 32, justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex'}}>
                         <div className='searchBar'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -43,8 +43,8 @@ const Navbar = () => {
                             <img className="AvatarPic" style={{ width: 44, height: 44, background: 'linear-gradient(0deg, white 0%, white 100%)', borderRadius: 9999 }} src={image3} />
                         </div>
                     </div>
-                    <div className="Ai" style={{ width: 60, height: 60, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                        <img className="Layila" style={{ width: 70, height: 70, background: 'none', borderRadius: 9999 }} src={image4} />
+                    <div className="Ai" style={{ width: 60, height: 60 }}>
+                        <img className="Layila" style={{ minWidth: 60, height: 60, background: 'none', borderRadius: 9999 }} src={image4} />
                     </div>
                 </div>
             </div>
