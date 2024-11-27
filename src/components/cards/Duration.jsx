@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import Select from 'react-select';
-import { display, fontSize, fontWeight } from '@mui/system';
 
 const Duration = () => {
   const [open, setOpen] = useState(false); // State to control dialog visibility
@@ -75,7 +74,6 @@ const Duration = () => {
   // Handle select change
   const handleChange = (selectedOption) => {
     setDuration(selectedOption.value);
-    console.log(`Selected Duration: ${selectedOption.label}`);
   };
 
   return (
@@ -185,7 +183,7 @@ const Duration = () => {
           }}
         >
           
-          <hr style={{width:'100%', margin: '16px 0'}} />
+          <hr style={{width:'100%', margin: '16px 0 48px 0'}} />
 
           <Select
             defaultValue={options.find((opt) => opt.value === duration)}
