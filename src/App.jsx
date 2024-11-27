@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
-import ToggleButton from './components/navbar/toogleButton/ToogleButton';
+import ToggleButton from './components/toogleButton/ToogleButton';
 
 function App() {
   return (
