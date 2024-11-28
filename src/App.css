@@ -1,6 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/sf-ui-text-2');
+
 *{
   width: 100%;
   justify-items: center; 
+  font-family: "SF UI Text";
 }
 
 .App{
@@ -14,4 +17,10 @@
   gap: 32px;
   padding-inline: 48px;
   margin: 32px 0;
+}
+
+.InterviewButton{
+  padding: 48px 42px;
+  display: flex;
+  justify-content: flex-end;
 }
