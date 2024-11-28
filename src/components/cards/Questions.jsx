@@ -246,7 +246,7 @@ const Questions = () => {
         }}
       >
         <button onClick={handleSaveQuestions} className="ButtonsCta" style={{ width: 137, height: 56, paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, background: '#0072DC', borderRadius: 30, justifyContent: 'center', alignItems: 'center', gap: 16, display: 'inline-flex' }}>
-          <div className="Text" style={{ textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'SF UI  Text', fontWeight: '400', wordWrap: 'break-word' }}>Save</div>
+          <div className="Text" style={{ display: 'flex', textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'SF UI  Text', fontWeight: '400', wordWrap: 'break-word' }}>Save</div>
         </button>
       </div>
     </Dialog >
