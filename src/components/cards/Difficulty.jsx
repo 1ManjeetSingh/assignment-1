@@ -9,7 +9,6 @@ const Difficulty = () => {
   const handleSelection = (level) => {
     setSelectedLevel(level); // Update selected level
     setOpen(false); // Close dialog on selection
-    console.log(`Selected Difficulty: ${level}`);
   };
 
   const toggleDialog = () => {
@@ -188,10 +187,6 @@ const Difficulty = () => {
                 width: "85%",
                 padding: "10px",
                 cursor: "pointer",
-                border:
-                  selectedLevel === level
-                    ? "2px solid #0072DC"
-                    : "2px solid transparent",
                 borderRadius: "8px",
                 display: "flex",
                 alignItems: "center",
@@ -210,11 +205,7 @@ const Difficulty = () => {
                   accentColor: "#0072DC", // Custom color for modern browsers
                 }}
               />
-              <span style={{
-                fontSize: "16px",
-                fontWeight: selectedLevel === level ? "bold" : "400"
-              }}
-              >
+              <span style={{ fontSize: "16px", fontWeight: "bold" }}>
                 {level}
               </span>
             </div>
