@@ -1,38 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 
 const Questions = () => {
   const [open, setOpen] = useState(false);
-  const [question, setQuestion] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
-
-  const svgStyle = {
-    transform: isFocused ? 'scale(1.1)' : 'scale(1)',
-    transition: 'transform 0.3s ease',
-  };
-
-  const focusInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
+  const [questions, setQuestions] = useState(['', '', '']); // Initialize with three empty input fields
+  const [questionsList, setQuestionsList] = useState([]); // List to store added questions
 
   const toggleDialog = () => {
     setOpen(!open);
   };
 
-  const handleInputChange = (e) => {
-    setQuestion(e.target.value);
+  const handleInputChange = (index, e) => {
+    const newQuestions = [...questions];
+    newQuestions[index] = e.target.value;
+    setQuestions(newQuestions);
   };
 
-  useEffect(() => {
-    if (isFocused === false) {
-      setQuestion('');
-    }
-  }, [isFocused]);
+  const handleSaveQuestions = () => {
+    // Save only non-empty questions to the list
+    setQuestionsList([...questionsList, ...questions.filter(q => q.trim() !== '')]);
+    setQuestions(['', '', '']); // Reset fields after saving
+    toggleDialog(); // Close the dialog after saving
+  };
 
   return (
     <>
@@ -52,10 +42,10 @@ const Questions = () => {
           gap: 16,
           display: 'inline-flex'
         }}
-        onClick={toggleDialog} // Added click event to trigger dialog toggle
+        onClick={toggleDialog}
       >
         <div
-          className="Frame1000008202"
+          className="Frame1000008202 cursor-pointer"
           style={{
             flex: '1 1 0',
             height: 106,
@@ -100,13 +90,14 @@ const Questions = () => {
               padding: 16,
               borderRadius: 8,
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: 'center',
               background: "white",
             }}
           >
             <div
-              className="Heading"
+              className="Heading flex flex-col justify-center"
               style={{
                 color: '#5C9AFF',
                 fontSize: 24,
@@ -117,7 +108,8 @@ const Questions = () => {
                 background: "white",
               }}
             >
-              Type custom interview questions
+              <span> {questionsList.length ? 'Custom questions' : 'Type custom interview questions'} </span>
+              <span className='text-[15px] text-black mt-[8px]' style={{fontWeight: '400'}}> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}              </span>
             </div>
           </div>
         </div>
@@ -125,18 +117,18 @@ const Questions = () => {
 
       <Dialog
         open={open}
-        onClose={toggleDialog} // Ensure onClose works to close the dialog
+        onClose={toggleDialog}
         sx={{
           '& .MuiDialog-paper': {
             borderRadius: '10px',
             border: '1px solid var(--logo-gr-Blue-to-pink, #D388FF)',
             background: "#FFF",
             boxShadow: '0px 0px 4px 0px #D388FF',
-            padding: '40px 24px',
+            padding: '24px'
           },
           '& .MuiBackdrop-root': {
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',
-    },
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          },
         }}
       >
         <div
@@ -147,7 +139,7 @@ const Questions = () => {
         >
           <div style={{ width: 'fit-content' }}>
             <svg
-              onClick={toggleDialog} // Ensure the close icon triggers the dialog close
+              onClick={toggleDialog}
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="32"
@@ -155,7 +147,6 @@ const Questions = () => {
               fill="none"
               style={{ cursor: 'pointer' }}
               aria-hidden="true"
-
             >
               <path
                 d="M28.8336 3.16676C27.8211 2.1542 26.1795 2.1541 25.1669 3.16655L15.9987 12.3334L6.83302 3.16687C5.82052 2.15428 4.17885 2.15428 3.16635 3.16687V3.16687C2.15398 4.17933 2.15398 5.82075 3.16635 6.83321L12.3324 16L3.16635 25.1669C2.15398 26.1793 2.15398 27.8208 3.16635 28.8332V28.8332C4.17885 29.8458 5.82052 29.8458 6.83302 28.8332L15.9987 19.6667L25.1669 28.8335C26.1795 29.846 27.8211 29.8459 28.8336 28.8333V28.8333C29.846 27.8208 29.846 26.1793 28.8336 25.1668L19.6676 16L28.8336 6.83332C29.846 5.8208 29.846 4.17928 28.8336 3.16676V3.16676Z"
@@ -177,70 +168,88 @@ const Questions = () => {
           Type custom interview questions
         </DialogTitle>
 
-        <div
-          style={{
-            width: '100%',
-            paddingBottom: '56px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            margin: '0 auto',
-            gap: 20
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+          <hr style={{ width: '100%', margin: '16px 0 24px 0' }} />
+
+          {questions.map((question, index) => (
+            <div
+              key={index}
+              className="InputContainer"
+              style={{
+                padding: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px',
+                borderRadius: '8px',
+          border: '0.5px solid var(--color-text--faint, #353535)',
+          background: 'var(--color---faint, #EBEBEB)',
           }}
         >
-          <hr style={{ width: '100%', margin: '16px 0 48px 0' }} />
-
-          <div
-            className="InputContainer"
+          <input
+            type="text"
+            placeholder={`Question ${index + 1}`}
+            value={question}
+            onChange={(e) => handleInputChange(index, e)}
             style={{
-              height: 56,
-              maxWidth: 657,
-              paddingLeft: 24,
-              paddingRight: 24,
-              paddingTop: 16,
-              paddingBottom: 16,
-              background: '#EBEBEB',
-              border: '2px solid var(--color-text--faint, #353535)',
-              boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
-              borderRadius: 8,
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              gap: 16,
-              display: 'flex',
+              width: '100%',
+              height: '36px',
+              padding: '0 8px',
+              fontSize: '16px',
+              borderRadius: '6px',
+              outline: 'none',
+              backgroundColor: 'var(--color---faint, #EBEBEB)',
+            }}
+          />
+          <button
+            className="searchBar"
+            style={{
+              width: 'fit-content',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
             }}
           >
-            <input
-              type="text"
-              className="SearchInput"
-              value={question}  // Bind the input value to the state
-              onChange={handleInputChange}
-              onClick={focusInput}
-              onFocus={() => setIsFocused(true)}  // Remove placeholder
-              onBlur={() => setIsFocused(false)}   // Show placeholder again
-              placeholder={isFocused ? '|' : 'Type your question here'}
-              ref={inputRef}
-              style={{
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                borderRadius: 24,
-                backgroundColor: '#EBEBEB',
-                outline: 'none',
-                fontSize: '18px',
-                color: 'var(--Text-text-secondary, #353535)',
-                fontFamily: 'SF UI Text',
-                fontWeight: '400',
-              }}
-            />
-            <button className="searchBar" style={{ width: 'fit-content' }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={svgStyle}>
-                <path d="M4.88233 6.17627H3.58822C2.90178 6.17627 2.24346 6.44896 1.75807 6.93434C1.27269 7.41973 1 8.07805 1 8.76449V20.4115C1 21.0979 1.27269 21.7562 1.75807 22.2416C2.24346 22.727 2.90178 22.9997 3.58822 22.9997H15.2352C15.9216 22.9997 16.58 22.727 17.0654 22.2416C17.5507 21.7562 17.8234 21.0979 17.8234 20.4115V19.1174" stroke="#0072DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M16.5293 3.58836L20.4116 7.47069M22.204 5.63952C22.7136 5.12984 23 4.43857 23 3.71777C23 2.99697 22.7136 2.3057 22.204 1.79602C21.6943 1.28634 21.003 1 20.2822 1C19.5614 1 18.8701 1.28634 18.3605 1.79602L7.47052 12.6471V16.5295H11.3528L22.204 5.63952Z" stroke="#0072DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-          </div>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.88233 6.17627H3.58822C2.90178 6.17627 2.24346 6.44896 1.75807 6.93434C1.27269 7.41973 1 8.07805 1 8.76449V20.4115C1 21.0979 1.27269 21.7562 1.75807 22.2416C2.24346 22.727 2.90178 22.9997 3.58822 22.9997H15.2352C15.9216 22.9997 16.58 22.727 17.0654 22.2416C17.5507 21.7562 17.8234 21.0979 17.8234 20.4115V19.1174"
+                stroke="#0072DC"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M16.5293 3.58836L20.4116 7.47069M22.204 5.63952C22.7136 5.12984 23 4.43857 23 3.71777C23 2.99697 22.7136 2.3057 22.204 1.79602C21.6943 1.28634 21.003 1 20.2822 1C19.5614 1 18.8701 1.28634 18.3605 1.79602L7.47052 12.6471V16.5295H11.3528L22.204 5.63952Z"
+                stroke="#0072DC"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
-      </Dialog>
+      ))}
+      </div>
+
+      <div
+        style={{
+          marginTop: 24,
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <button onClick={handleSaveQuestions} className="ButtonsCta" style={{ width: 137, height: 56, paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, background: '#0072DC', borderRadius: 30, justifyContent: 'center', alignItems: 'center', gap: 16, display: 'inline-flex' }}>
+          <div className="Text" style={{ textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'SF UI  Text', fontWeight: '400', wordWrap: 'break-word' }}>Save</div>
+        </button>
+      </div>
+    </Dialog >
     </>
   );
 };

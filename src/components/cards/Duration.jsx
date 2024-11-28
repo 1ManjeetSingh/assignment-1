@@ -5,7 +5,7 @@ import Select from 'react-select';
 
 const Duration = () => {
   const [open, setOpen] = useState(false); // State to control dialog visibility
-  const [duration, setDuration] = useState('90'); // State for selected duration
+  const [duration, setDuration] = useState(); // State for selected duration
 
   const options = [
     { value: '60', label: '60 sec' },
@@ -94,20 +94,21 @@ const Duration = () => {
             </defs>
           </svg>
           <div
-            className="Content"
+            className="Content cursor-pointer"
             style={{
               flex: 1,
               height: '100%',
               padding: 16,
               borderRadius: 8,
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: 'center',
               background: "white",
             }}
           >
             <div
-              className="Heading"
+              className="Heading flex flex-col"
               style={{
                 color: '#5C9AFF',
                 fontSize: 24,
@@ -117,8 +118,9 @@ const Duration = () => {
                 wordWrap: 'break-word',
                 background: "white",
               }}
-            >
-              Duration per question
+            ><span>   Duration per question</span>
+              <span className='text-black text-[18px] mt-[8px]' style={{fontWeight: '400'}}>{duration} {duration ? 'sec':''}</span>
+
             </div>
           </div>
         </div>
@@ -175,11 +177,12 @@ const Duration = () => {
           }}
         >
           Duration per question
+
         </DialogTitle>
 
         <div
           style={{
-            width: '100%',
+            width: '85%',
             paddingBottom: '56px',
             display: 'flex',
             flexDirection: 'column',
@@ -196,6 +199,7 @@ const Duration = () => {
             options={options}
             styles={customStyles}
             onChange={handleChange}
+            value={options.find(option => option.value === duration)}
             placeholder="Select time"
           />
         </div>
