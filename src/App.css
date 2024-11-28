@@ -20,7 +20,7 @@
 }
 
 .InterviewButton{
-  padding: 48px 42px;
+  padding: 0 48px 42px;
   display: flex;
   justify-content: flex-end;
 }
