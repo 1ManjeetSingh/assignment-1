@@ -18,7 +18,7 @@ const Duration = () => {
       ...provided,
       backgroundColor: '#f9f9f9',
       borderColor: '#ddd',
-      color: '#333',
+      color: '#161616',
       height: '48px',
       fontSize: '16px',
       boxShadow: 'none',
@@ -45,19 +45,28 @@ const Duration = () => {
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: '#ffffff',
+      position: 'fixed',            // Use fixed positioning
+      backgroundColor: '#B9B9B9',
       border: '1px solid #ddd',
       borderRadius: '4px',
+      zIndex: 999,                  // Ensure it stays above other elements
+      top: 'auto',                  // Adjust dynamically (example: 50px from the top of the viewport)
+      left: 'auto',                 // Adjust dynamically (example: 20px from the left of the viewport)
+      width: '467px',               // Set the width (can match parent control if needed)
+      maxHeight: '300px',           // Limit height to prevent overflow
+      overflowY: 'auto',            // Enable scrolling if content exceeds maxHeight
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Optional shadow for better visuals
     }),
+      
     placeholder: (provided) => ({
       ...provided,
       color: '#161616',
+      fontWeight: '400'
     }),
     singleValue: (provided) => ({
       ...provided,
       color: '#161616',
       fontFamily: 'SF UI  Text',
-      fontWeight: 'bold',
       fontSize: '18px',
     }),
     overflow: 'hidden',
@@ -136,7 +145,8 @@ const Duration = () => {
             border: '1px solid var(--logo-gr-Blue-to-pink, #D388FF)',
             background: "#FFF",
             boxShadow: '0px 0px 4px 0px #D388FF',
-            padding: '24px'
+            padding: '24px',
+            marginBottom: '40px'
           },
           '& .MuiBackdrop-root': {
       backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -182,6 +192,7 @@ const Duration = () => {
 
         <div
           style={{
+            // minHeight: '220px',
             width: '85%',
             paddingBottom: '56px',
             display: 'flex',
@@ -192,7 +203,7 @@ const Duration = () => {
           }}
         >
 
-          <hr style={{ width: '100%', margin: '16px 0 48px 0' }} />
+          <hr style={{ width: '100%', margin: '16px 0 16px 0' }} />
 
           <Select
             defaultValue={options.find((opt) => opt.value === duration)}

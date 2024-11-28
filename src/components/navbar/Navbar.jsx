@@ -58,7 +58,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="Frame1000008205" style={{ justifyContent: 'flex-start', alignItems: 'center', gap: 24, display: 'flex' }}>
-                    <div className="Frame1000008204" style={{ paddingLeft: 16, paddingTop: 8, paddingRight: 16, paddingBottom: 8, background: '#EBEBEB', boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)', borderRadius: 40, backdropFilter: 'blur(4px)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
+                    <div className="Frame1000008204" style={{ paddingLeft: 16, paddingTop: 4, paddingRight: 16, paddingBottom: 4, background: '#EBEBEB', boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)', borderRadius: 40, backdropFilter: 'blur(4px)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
                         <div className="ButtonsNotification" style={{ width: 44, height: 44, marginRight: 16, position: 'relative', background: '#EBEBEB', }}>
                             <div className="Ellipse" style={{ width: 44, height: 44, left: 0, top: 0, position: 'absolute', background: '#fff', borderRadius: 9999 }} />
                             <div className="IconsBell" style={{ width: 24, height: 24, left: 10, top: 10, position: 'absolute', background: '#fff', }}>
@@ -71,8 +71,8 @@ const Navbar = () => {
                             <img className="AvatarPic" style={{ width: 44, minWidth: 44, marginRight: -25, height: 44, background: 'none', borderRadius: 9999 }} src={image3} />
                         </div>
                     </div>
-                    <div className="Ai" style={{ width: 60, height: 60, background: 'none' }}>
-                        <img className="Layila" style={{ minWidth: 65, height: 65, background: 'none', borderRadius: 9999, marginTop: '-2.5px' }} src={image4} />
+                    <div className="Ai" style={{ width: 56, height: 56, background: 'none' }}>
+                        <img className="Layila" style={{ minWidth: 61, height: 61, background: 'none', borderRadius: 9999, marginTop: '-2.5px' }} src={image4} />
                     </div>
                 </div>
             </div>

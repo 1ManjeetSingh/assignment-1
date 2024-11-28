@@ -2,27 +2,51 @@ import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import image1 from '../../assets/Group.svg';
+
 const Questions = () => {
   const [open, setOpen] = useState(false);
   const [questions, setQuestions] = useState(['', '', '']); // Initialize with three empty input fields
   const [questionsList, setQuestionsList] = useState([]); // List to store added questions
+  const [focusedInputs, setFocusedInputs] = useState(
+    new Array(questions.length).fill(false) // Array to track focus state for each input
+  );
 
-  const toggleDialog = () => {
-    setOpen(!open);
+  const handleFocus = (index) => {
+    const newFocusState = [...focusedInputs];
+    newFocusState[index] = true;
+    setFocusedInputs(newFocusState);
   };
 
+  const handleBlur = (index) => {
+    const newFocusState = [...focusedInputs];
+    newFocusState[index] = false;
+    setFocusedInputs(newFocusState);
+  };
+
+  const toggleDialog = () => {
+    if (open) {
+      // Reset questions only if they are empty
+      if (questions.every(q => q.trim() === '')) {
+        setQuestions(['', '', '']); // Reset only if no data has been entered
+      }
+    }
+    setOpen(!open); // Toggle the dialog open/close state
+  };
+  
   const handleInputChange = (index, e) => {
     const newQuestions = [...questions];
     newQuestions[index] = e.target.value;
-    setQuestions(newQuestions);
+    setQuestions(newQuestions); // Update questions without resetting them
   };
-
+  
   const handleSaveQuestions = () => {
-    // Save only non-empty questions to the list
-    setQuestionsList([...questionsList, ...questions.filter(q => q.trim() !== '')]);
-    setQuestions(['', '', '']); // Reset fields after saving
+    
+    setQuestionsList([...questions.filter(q => q.trim() !== '')]);
+  
     toggleDialog(); // Close the dialog after saving
   };
+  
 
   return (
     <>
@@ -178,7 +202,7 @@ const Questions = () => {
               key={index}
               className="InputContainer"
               style={{
-                padding: '16px',
+                padding: '16px 24px',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '16px',
@@ -191,14 +215,16 @@ const Questions = () => {
             type="text"
             placeholder={`Question ${index + 1}`}
             value={question}
+            onFocus={() => handleFocus(index)}
+            onBlur={() => handleBlur(index)}
             onChange={(e) => handleInputChange(index, e)}
             style={{
               width: '100%',
               height: '36px',
-              padding: '0 8px',
               fontSize: '16px',
               borderRadius: '6px',
               outline: 'none',
+              borderBottom: focusedInputs[index] ? '1px solid grey' : 'none',
               backgroundColor: 'var(--color---faint, #EBEBEB)',
             }}
           />
@@ -207,32 +233,14 @@ const Questions = () => {
             style={{
               width: 'fit-content',
               background: 'transparent',
-              border: 'none',
               cursor: 'pointer',
+              display: 'flex',
+              justifyContent: 'center', 
+              outline: 'none', 
+              border: 'none',
             }}
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.88233 6.17627H3.58822C2.90178 6.17627 2.24346 6.44896 1.75807 6.93434C1.27269 7.41973 1 8.07805 1 8.76449V20.4115C1 21.0979 1.27269 21.7562 1.75807 22.2416C2.24346 22.727 2.90178 22.9997 3.58822 22.9997H15.2352C15.9216 22.9997 16.58 22.727 17.0654 22.2416C17.5507 21.7562 17.8234 21.0979 17.8234 20.4115V19.1174"
-                stroke="#0072DC"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M16.5293 3.58836L20.4116 7.47069M22.204 5.63952C22.7136 5.12984 23 4.43857 23 3.71777C23 2.99697 22.7136 2.3057 22.204 1.79602C21.6943 1.28634 21.003 1 20.2822 1C19.5614 1 18.8701 1.28634 18.3605 1.79602L7.47052 12.6471V16.5295H11.3528L22.204 5.63952Z"
-                stroke="#0072DC"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img src= {image1} alt="" />
           </button>
         </div>
       ))}
@@ -245,7 +253,7 @@ const Questions = () => {
           justifyContent: 'center',
         }}
       >
-        <button onClick={handleSaveQuestions} className="ButtonsCta" style={{ width: 137, height: 56, paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, background: '#0072DC', borderRadius: 30, justifyContent: 'center', alignItems: 'center', gap: 16, display: 'inline-flex' }}>
+        <button onClick={handleSaveQuestions} className="ButtonsCta" style={{ width: 137, height: 56, paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, background: '#0072DC', borderRadius: 30, justifyContent: 'center', alignItems: 'center', gap: 16, display: 'inline-flex', outline: 'none', border: 'none', }}>
           <div className="Text" style={{ display: 'flex', textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'SF UI  Text', fontWeight: '400', wordWrap: 'break-word' }}>Save</div>
         </button>
       </div>

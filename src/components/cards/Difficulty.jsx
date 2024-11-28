@@ -124,8 +124,8 @@ const Difficulty = () => {
             paddingBottom: '48px',
           },
           '& .MuiBackdrop-root': {
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',
-    },
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          },
         }}
         open={open}
         onClose={toggleDialog}
@@ -210,7 +210,11 @@ const Difficulty = () => {
                   accentColor: "#0072DC", // Custom color for modern browsers
                 }}
               />
-              <span style={{ fontSize: "16px", fontWeight: "bold" }}>
+              <span style={{
+                fontSize: "16px",
+                fontWeight: selectedLevel === level ? "bold" : "400"
+              }}
+              >
                 {level}
               </span>
             </div>
