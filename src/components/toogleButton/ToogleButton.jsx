@@ -10,7 +10,7 @@ const ToggleButton = () => {
       <div
         className="LetsGetYouStartedWithSchedulingYourAiInterview"
         style={{
-          width: 892,
+          width: '900px',
           textAlign: 'center',
           color: '#D388FF',
           fontSize: 48,
