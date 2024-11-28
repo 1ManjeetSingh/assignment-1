@@ -66,6 +66,7 @@ const ToggleButton = () => {
         >
           1024 candidates
         </span>
+        &nbsp;
         <span
           style={{
             color: '#161616',
