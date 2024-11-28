@@ -3,6 +3,10 @@
   justify-items: center; 
 }
 
+.App{
+  background-color: #F1F4F8;
+}
+
 .DialogCards{
   display: flex;
   justify-content: space-between;

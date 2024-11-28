@@ -111,7 +111,7 @@ const Slider = () => {
             >
               <div className="p-6 bg-gradient-to-r border-purple-600 border-2 from-blue-950 to-cyan-950 shadow-xl text-white rounded-lg flex justify-center items-center" style={{borderRadius: '16px',
   background: 'linear-gradient(90deg, #2D2D54 19.18%, #0F0F36 76.34%)',
-  boxShadow: '0px 0px 10px 0px #D388FF', paddingInline: 64, height: 244}}>
+  boxShadow: '0px 0px 10px 0px #D388FF', paddingInline: 64, height: 244,}}>
                 <div>
                   <h2 className="text-xl font-bold mb-2">{slide.title}</h2>
                   <p>{slide.description}</p>

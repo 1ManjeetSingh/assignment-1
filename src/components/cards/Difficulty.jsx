@@ -49,10 +49,11 @@ const Difficulty = () => {
             alignItems: "center",
             gap: 16,
             display: "flex",
+            background: "none",
           }}
         >
           <svg
-            style={{ width: "fit-content" }}
+            style={{ width: "fit-content",background: "white", }}
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="34"
@@ -79,6 +80,7 @@ const Difficulty = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              background: "white",
             }}
           >
             <div
@@ -90,6 +92,7 @@ const Difficulty = () => {
                 fontWeight: 600,
                 lineHeight: "28px",
                 wordWrap: "break-word",
+                background: "white",
               }}
             >
               Difficulty Level

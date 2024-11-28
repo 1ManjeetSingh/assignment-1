@@ -39,6 +39,7 @@
     height: 34px;
     width: 100%; 
     max-width: 657px;
+    background-color: #EBEBEB;
 }
 
 .searchBar>input {
@@ -47,6 +48,8 @@
     color: #353535;
     font-family: "SF UI Text";
     font-size: 18px;
+    padding: 10px 0;
+    margin: -10px 0;
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
@@ -71,6 +74,7 @@
 
 .Frame1000008205 {
     width: fit-content;
+    background-color: #fff;
 }
 
 

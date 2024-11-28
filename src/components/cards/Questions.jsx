@@ -45,11 +45,12 @@ const Questions = () => {
             justifyContent: 'flex-start',
             alignItems: 'center',
             gap: 16,
-            display: 'flex'
+            display: 'flex',
+            background: "none",
           }}
         >
           <svg
-            style={{ width: 'fit-content' }}
+            style={{ width: 'fit-content',background: "white", }}
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -81,7 +82,8 @@ const Questions = () => {
               borderRadius: 8,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              background: "white",
             }}
           >
             <div
@@ -92,7 +94,8 @@ const Questions = () => {
                 fontFamily: 'SF UI Text',
                 fontWeight: 600,
                 lineHeight: '28px',
-                wordWrap: 'break-word'
+                wordWrap: 'break-word',
+                background: "white",
               }}
             >
               Type custom interview questions
