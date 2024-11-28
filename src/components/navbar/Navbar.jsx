@@ -1,19 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './navbar.css'
 
 import image1 from '../../assets/image1.png';
 import image2 from '../../assets/Aspireit.png';
 import image3 from '../../assets/Ellipse 1872.svg';
-import image4 from '../../assets/Layila.svg';
+import image4 from '../../assets/Type=Layila.svg';
 
 const Navbar = () => {
-    const[searchPhrase,setSearchPhrase] = useState('');
+    const [searchPhrase, setSearchPhrase] = useState('');
+    const [isFocused, setIsFocused] = useState(false);
+    const inputRef = useRef(null);
+
+    const focusInput = () => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
+    };
 
     const handleSearch = (e) => {
         setSearchPhrase(e.target.value);
-      };
+    };
 
-        return (
+    useEffect(() => {
+        if (isFocused === false) {
+            setSearchPhrase('');
+        }
+    }, [isFocused]);
+
+    return (
         <div>
             <div className="NavBar" style={{ width: '100%', height: '100%', paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, background: 'white', border: '1px #D2D2D2 solid', backdropFilter: 'blur(220px)', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex' }}>
                 <div className="logo-container" style={{ width: 130, height: 46, position: 'relative' }}>
@@ -24,13 +38,21 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="SearchBarContainer" style={{ justifyContent: 'center', alignItems: 'center', gap: 16, display: 'flex', backgroundColor: '#fff', }}>
-                    <div className='InputContainer' style={{height: 56, maxWidth: 657, paddingLeft: 24, paddingRight: 24, paddingTop: 16, paddingBottom: 16, background: '#EBEBEB', boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)', borderRadius: 32, justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex'}}>
+                    <div className='InputContainer' style={{ height: 48, maxWidth: 657, paddingLeft: 24, paddingRight: 24, paddingTop: 16, paddingBottom: 16, background: '#EBEBEB', boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)', borderRadius: 32, justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex' }}>
                         <div className='searchBar'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" className={isFocused ? 'scaled' : ''}                            >
                                 <path d="M9.49996 2.75C8.16495 2.75 6.85991 3.14588 5.74989 3.88757C4.63986 4.62927 3.7747 5.68347 3.26381 6.91686C2.75292 8.15026 2.61925 9.50745 2.8797 10.8168C3.14015 12.1262 3.78302 13.3289 4.72702 14.2729C5.67102 15.2169 6.87375 15.8598 8.18311 16.1202C9.49248 16.3807 10.8497 16.247 12.0831 15.7361C13.3165 15.2252 14.3707 14.3601 15.1124 13.25C15.854 12.14 16.2499 10.835 16.2499 9.49996C16.2498 7.70979 15.5386 5.99298 14.2728 4.72714C13.0069 3.46131 11.2901 2.75011 9.49996 2.75Z" stroke="#353535" stroke-width="2" stroke-miterlimit="10" />
                                 <path d="M14.666 14.668L18.3327 18.3346" stroke="#353535" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />
                             </svg>
-                            <input type="text" name='searchBar' value={searchPhrase} onChange={handleSearch} placeholder='Search'/>
+                            <input
+                                onClick={focusInput}
+                                type="text" name='searchBar'
+                                value={isFocused ? searchPhrase : ''}
+                                onChange={handleSearch}
+                                onFocus={() => setIsFocused(true)}
+                                onBlur={() => setIsFocused(false)}
+                                placeholder={isFocused ? '|' : 'Search'}
+                                ref={inputRef} />
                         </div>
                     </div>
                 </div>
@@ -49,8 +71,8 @@ const Navbar = () => {
                             <img className="AvatarPic" style={{ width: 44, minWidth: 44, marginRight: -25, height: 44, background: 'none', borderRadius: 9999 }} src={image3} />
                         </div>
                     </div>
-                    <div className="Ai" style={{ width: 60, height: 60 ,background: 'none'}}>
-                        <img className="Layila" style={{ minWidth: 60, height: 60, background: 'none', borderRadius: 9999 }} src={image4} />
+                    <div className="Ai" style={{ width: 60, height: 60, background: 'none' }}>
+                        <img className="Layila" style={{ minWidth: 65, height: 65, background: 'none', borderRadius: 9999, marginTop: '-2.5px' }} src={image4} />
                     </div>
                 </div>
             </div>

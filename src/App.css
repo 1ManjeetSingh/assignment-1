@@ -8,8 +8,10 @@
 }
 
 .DialogCards{
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 32px;
   padding-inline: 48px;
   margin: 32px 0;
 }

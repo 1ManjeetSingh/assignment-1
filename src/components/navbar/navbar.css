@@ -72,10 +72,18 @@
     margin-right: 16px;
 }
 
+.searchBar svg.scaled {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
 .Frame1000008205 {
     width: fit-content;
     background-color: #fff;
 }
 
-
+.IconsBell:hover,.Profile:hover,.Layila:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
 

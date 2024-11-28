@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 
 const Questions = () => {
   const [open, setOpen] = useState(false);
   const [question, setQuestion] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef(null);
+
+  const svgStyle = {
+    transform: isFocused ? 'scale(1.1)' : 'scale(1)',
+    transition: 'transform 0.3s ease',
+  };
+
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
 
   const toggleDialog = () => {
@@ -14,6 +27,12 @@ const Questions = () => {
   const handleInputChange = (e) => {
     setQuestion(e.target.value);
   };
+
+  useEffect(() => {
+    if (isFocused === false) {
+      setQuestion('');
+    }
+  }, [isFocused]);
 
   return (
     <>
@@ -50,7 +69,7 @@ const Questions = () => {
           }}
         >
           <svg
-            style={{ width: 'fit-content',background: "white", }}
+            style={{ width: 'fit-content', background: "white", }}
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -109,11 +128,15 @@ const Questions = () => {
         onClose={toggleDialog} // Ensure onClose works to close the dialog
         sx={{
           '& .MuiDialog-paper': {
-            border: '4px solid #D388FF',
             borderRadius: '10px',
-            boxShadow: '0px 0px 8px #D388FF',
+            border: '1px solid var(--logo-gr-Blue-to-pink, #D388FF)',
+            background: "#FFF",
+            boxShadow: '0px 0px 4px 0px #D388FF',
             padding: '40px 24px',
-          }
+          },
+          '& .MuiBackdrop-root': {
+      backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    },
         }}
       >
         <div
@@ -132,6 +155,7 @@ const Questions = () => {
               fill="none"
               style={{ cursor: 'pointer' }}
               aria-hidden="true"
+
             >
               <path
                 d="M28.8336 3.16676C27.8211 2.1542 26.1795 2.1541 25.1669 3.16655L15.9987 12.3334L6.83302 3.16687C5.82052 2.15428 4.17885 2.15428 3.16635 3.16687V3.16687C2.15398 4.17933 2.15398 5.82075 3.16635 6.83321L12.3324 16L3.16635 25.1669C2.15398 26.1793 2.15398 27.8208 3.16635 28.8332V28.8332C4.17885 29.8458 5.82052 29.8458 6.83302 28.8332L15.9987 19.6667L25.1669 28.8335C26.1795 29.846 27.8211 29.8459 28.8336 28.8333V28.8333C29.846 27.8208 29.846 26.1793 28.8336 25.1668L19.6676 16L28.8336 6.83332C29.846 5.8208 29.846 4.17928 28.8336 3.16676V3.16676Z"
@@ -188,9 +212,13 @@ const Questions = () => {
             <input
               type="text"
               className="SearchInput"
-              placeholder="Type your question here"
               value={question}  // Bind the input value to the state
-              onChange={handleInputChange}  // Update state on change
+              onChange={handleInputChange}
+              onClick={focusInput}
+              onFocus={() => setIsFocused(true)}  // Remove placeholder
+              onBlur={() => setIsFocused(false)}   // Show placeholder again
+              placeholder={isFocused ? '|' : 'Type your question here'}
+              ref={inputRef}
               style={{
                 width: '100%',
                 height: '100%',
@@ -204,8 +232,8 @@ const Questions = () => {
                 fontWeight: '400',
               }}
             />
-            <button className="searchBar" style={{width: 'fit-content'}}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button className="searchBar" style={{ width: 'fit-content' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={svgStyle}>
                 <path d="M4.88233 6.17627H3.58822C2.90178 6.17627 2.24346 6.44896 1.75807 6.93434C1.27269 7.41973 1 8.07805 1 8.76449V20.4115C1 21.0979 1.27269 21.7562 1.75807 22.2416C2.24346 22.727 2.90178 22.9997 3.58822 22.9997H15.2352C15.9216 22.9997 16.58 22.727 17.0654 22.2416C17.5507 21.7562 17.8234 21.0979 17.8234 20.4115V19.1174" stroke="#0072DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M16.5293 3.58836L20.4116 7.47069M22.204 5.63952C22.7136 5.12984 23 4.43857 23 3.71777C23 2.99697 22.7136 2.3057 22.204 1.79602C21.6943 1.28634 21.003 1 20.2822 1C19.5614 1 18.8701 1.28634 18.3605 1.79602L7.47052 12.6471V16.5295H11.3528L22.204 5.63952Z" stroke="#0072DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
