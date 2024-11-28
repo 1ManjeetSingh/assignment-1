@@ -20,3 +20,18 @@
     width: fit-content;
 }
 
+.LetsGetYouStartedWithSchedulingYourAiInterview{
+    text-align: center;
+
+/* SF/Display/Bold-700 */
+font-family: "SF UI Display";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; /* 116.667% */
+background: linear-gradient(325deg, #D388FF 21.06%, #4B94F6 83.52%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+

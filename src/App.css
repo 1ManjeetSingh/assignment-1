@@ -1,5 +1,11 @@
 *{
   width: 100%;
-  box-sizing: border-box;
-  justify-items: center; /* remove after */
+  justify-items: center; 
+}
+
+.DialogCards{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 48px;
+  margin: 32px 0;
 }
