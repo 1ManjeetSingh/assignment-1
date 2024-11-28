@@ -87,10 +87,11 @@ const ToggleButton = () => {
           {/* Non-Technical Button */}
 
           <button
-            className={`nonTechnical flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out ${selected === "nonTechnical"
-              ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-              : "bg-white text-gray-700"
-              }`}
+            className={`technical flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out ${
+              selected === "nonTechnical"
+                ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white focus:outline-none border-none"
+                : "bg-white text-gray-700 focus:outline-none border-none"
+            }`}            
             onClick={() => setSelected("nonTechnical")}
           >
             {selected === "nonTechnical" ? <svg className="toogleIcon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,10 +137,11 @@ const ToggleButton = () => {
 
           {/* Technical Button */}
           <button
-            className={`technical flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out ${selected === "technical"
-              ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-              : "bg-white text-gray-700"
-              }`}
+            className={`technical flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out ${
+              selected === "technical"
+                ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white focus:outline-none border-none"
+                : "bg-white text-gray-700 focus:outline-none border-none"
+            }`}            
             onClick={() => setSelected("technical")}
           >
             {selected === "technical" ? <svg className="toogleIcon" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
