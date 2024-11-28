@@ -14,7 +14,7 @@ const ToggleButton = () => {
           textAlign: 'center',
           color: '#D388FF',
           fontSize: 48,
-          fontFamily: 'SF UI Display',
+          fontFamily: 'SF UI TEXT',
           fontWeight: 700,
           wordWrap: 'break-word',
           margin: '24px 0'
