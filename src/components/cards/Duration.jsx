@@ -125,7 +125,7 @@ const Duration = () => {
                 fontWeight: 600,
                 lineHeight: '28px',
                 wordWrap: 'break-word',
-                background: "white",
+                background: "none",
               }}
             >   Duration per question
             </div>

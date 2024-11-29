@@ -137,8 +137,7 @@ const Questions = () => {
             <div style={{color: "#333232",
                 fontSize: 18,
                 fontFamily: 'SF UI Text',
-                marginTop: 8,}}
-                > {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
+                marginTop: 8,}}> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
           </div>
         </div>
       </div>
@@ -228,6 +227,8 @@ const Questions = () => {
               fontSize: '16px',
               borderRadius: '6px',
               outline: 'none',
+              justifyItems: 'left',
+              padding: '0 8px',
               borderBottom: focusedInputs[index] ? '1px solid grey' : 'none',
               backgroundColor: 'var(--color---faint, #EBEBEB)',
             }}

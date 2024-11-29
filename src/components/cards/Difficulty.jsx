@@ -92,7 +92,7 @@ const Difficulty = () => {
                 fontWeight: 600,
                 lineHeight: "28px",
                 wordWrap: "break-word",
-                background: "white",
+                background: "none",
               }}
             >
               Difficulty Level
@@ -173,7 +173,7 @@ const Difficulty = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 20,
+            gap: 8,
           }}
         >
           <hr style={{ width: "85%", marginBottom: 24 }} />
@@ -205,7 +205,7 @@ const Difficulty = () => {
                   accentColor: "#0072DC", // Custom color for modern browsers
                 }}
               />
-              <span style={{ fontSize: "16px", fontWeight: selectedLevel === level ? "bold" : "400" }}>
+              <span style={{ fontSize: "16px", color: 'var(--Text-text-primary, #161616)', fontFamily: 'SF UI TEXT', fontWeight: selectedLevel === level ? "bold" : "400" }}>
                 {level}
               </span>
             </div>

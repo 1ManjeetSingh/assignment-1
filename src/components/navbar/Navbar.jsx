@@ -45,6 +45,10 @@ const Navbar = () => {
                                 <path d="M14.666 14.668L18.3327 18.3346" stroke="#353535" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />
                             </svg>
                             <input
+                                style={{
+                                    justifyItems: 'left',
+                                    padding: '0 8px',
+                                }}
                                 onClick={focusInput}
                                 type="text" name='searchBar'
                                 value={isFocused ? searchPhrase : ''}
