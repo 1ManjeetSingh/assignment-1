@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
+import './cards.css';
 
 import image1 from '../../assets/Group.svg';
 

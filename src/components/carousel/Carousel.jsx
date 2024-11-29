@@ -107,16 +107,16 @@ const Slider = () => {
                   : isNext ? 'transform scale-100 translate-x-20 z-10 '
                     : 'opacity-0'
                 }`}
-              style={{ maxWidth: '743px', paddingInline: 64, boxSizing: 'border-box' }} 
+              style={{ maxWidth: '743px', paddingInline: 48, boxSizing: 'border-box' }} 
             >
               <div className="p-6 bg-gradient-to-r border-purple-600 border-2 from-blue-950 to-cyan-950 shadow-xl text-white rounded-lg flex justify-center items-center" style={{borderRadius: '16px',
   background: 'linear-gradient(90deg, #2D2D54 19.18%, #0F0F36 76.34%)',
-  boxShadow: '0px 0px 10px 0px #D388FF', paddingInline: 64, height: 244,}}>
-                <div style={{maxWidth: '280px'}}>
+  boxShadow: '0px 0px 10px 0px #D388FF', paddingInline: 48, height: 244,}}>
+                <div style={{maxWidth: '300px'}}>
                   <h2 className="text-xl font-bold mb-2">{slide.title}</h2>
                   <p>{slide.description}</p>
                 </div>
-                <div className="flex items-center justify-center mb-4 w-48">
+                <div className="flex items-center mb-4" style={{justifyContent: 'right'}}>
                   {slide.icon}
                 </div>
               </div>

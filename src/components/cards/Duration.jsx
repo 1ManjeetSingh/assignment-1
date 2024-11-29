@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import Select from 'react-select';
+import './cards.css';
 
 const Duration = () => {
   const [open, setOpen] = useState(false); // State to control dialog visibility
