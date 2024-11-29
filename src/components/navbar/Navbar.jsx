@@ -30,8 +30,8 @@ const Navbar = () => {
     return (
         <div>
             <div className="NavBar" style={{ width: '100%', height: '100%', paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, background: 'white', border: '1px #D2D2D2 solid', backdropFilter: 'blur(220px)', justifyContent: 'space-between', alignItems: 'center', display: 'inline-flex' }}>
-                <div className="logo-container" style={{ width: 130, height: 46, position: 'relative' }}>
-                    <div className="Rectangle7391" style={{ width: 130, height: 46, left: 0, top: 0, position: 'absolute', background: '#0F0F36', borderRadius: 15 }} />
+                <div className="logo-container" style={{ width: '130px', height: 46, position: 'relative' }}>
+                    <div className="Rectangle7391" style={{ width: 130, height: 46, left: 0, top: 0, position: 'relative', background: '#0F0F36', borderRadius: 15 }} />
                     <div className="logo" style={{ width: 100, height: 30.22, left: 15, top: 8, position: 'absolute' }}>
                         <img className="Aspireit" src={image1} />
                         <img className="Group1000007770" src={image2} />

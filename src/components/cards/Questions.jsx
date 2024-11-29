@@ -129,7 +129,7 @@ const Questions = () => {
                 fontWeight: 600,
                 lineHeight: '28px',
                 wordWrap: 'break-word',
-                background: "white",
+                background: "none",
               }}
             >
               <span> {questionsList.length ? 'Custom questions' : 'Type custom interview questions'} </span>

@@ -17,7 +17,7 @@ const ToggleButton = () => {
           fontFamily: 'SF UI TEXT',
           fontWeight: 700,
           wordWrap: 'break-word',
-          margin: '24px 0'
+          margin: '32px 0'
         }}
       >
         Let's get you started with scheduling your AI interview
