@@ -127,10 +127,14 @@ const Duration = () => {
                 wordWrap: 'break-word',
                 background: "white",
               }}
-            ><span>   Duration per question</span>
-              <span className='text-black text-[18px] mt-[8px]' style={{fontWeight: '400'}}>{duration} {duration ? 'sec':''}</span>
-
+            >   Duration per question
             </div>
+            <div style={{
+                color: "#333232",
+                fontSize: 18,
+                fontFamily: 'SF UI Text',
+                marginTop: 8,}}
+                >{duration} {duration ? 'sec':''}</div>
           </div>
         </div>
       </div>

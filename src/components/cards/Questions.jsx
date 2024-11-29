@@ -132,9 +132,13 @@ const Questions = () => {
                 background: "none",
               }}
             >
-              <span> {questionsList.length ? 'Custom questions' : 'Type custom interview questions'} </span>
-              <span className='text-[15px] text-black mt-[8px]' style={{fontWeight: '400'}}> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}              </span>
+             {questionsList.length ? 'Custom questions' : 'Type custom interview questions'}
             </div>
+            <div style={{color: "#333232",
+                fontSize: 18,
+                fontFamily: 'SF UI Text',
+                marginTop: 8,}}
+                > {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
           </div>
         </div>
       </div>
