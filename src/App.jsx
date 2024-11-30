@@ -1,5 +1,5 @@
 import './App.css';
-import MergedComponents from './components/MergedComponets/MergedComponents';
+import MergedComponents from './components/mergedComponets/MergedComponents';
 
 function App() {
   return (
