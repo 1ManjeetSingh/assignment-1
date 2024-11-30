@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import './cards.css';
 
 const Difficulty = () => {
   const [open, setOpen] = useState(false);
@@ -20,40 +19,14 @@ const Difficulty = () => {
     <>
       {/* Trigger Button (Selection Panel) */}
       <div
-        className="SelectionPanel"
+        className="SelectionPanel hover:transform hover:scale-[1.01]  w-[425px] h-[106px] px-[24px] bg-white rounded-[10px] shadow-[0px_2px_12px_rgba(0,_0,_0,_0.25)] border-[2px] border-[#5C9AFF] inline-flex items-center justify-start gap-[16px] cursor-pointer"
         onClick={toggleDialog}
-        style={{
-          width: 425,
-          height: 106,
-          paddingLeft: 24,
-          paddingRight: 24,
-          background: "white",
-          borderRadius: 10,
-          boxShadow: "0px 2px 12px rgba(0, 0, 0, 0.25)",
-          border: "2px #5C9AFF solid",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: 16,
-          display: "inline-flex",
-          cursor: "pointer",
-        }}
       >
         <div
-          className="Frame1000008202 cursor-pointer"
-          style={{
-            flex: "1 1 0",
-            height: 106,
-            paddingTop: 8,
-            paddingBottom: 8,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            gap: 16,
-            display: "flex",
-            background: "none",
-          }}
+          className="Frame1000008202 cursor-pointer flex-[1_1_0] h-[106px] pt-[8px] pb-[8px] justify-start items-center gap-[16px] flex bg-none"
         >
           <svg
-            style={{ width: "fit-content", background: "white" }}
+            className="w-fit bg-white"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="34"
@@ -71,42 +44,13 @@ const Difficulty = () => {
             />
           </svg>
           <div
-            className="Content"
-            style={{
-              flex: 1,
-              height: "100%",
-              padding: 16,
-              borderRadius: 8,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: 'center',
-              background: "white",
-            }}
-          >
+            className="Content flex-1 h-full p-[16px] rounded-[8px] flex flex-col justify-center items-center bg-white " >
             <div
-              className="Heading"
-              style={{
-                color: "#5C9AFF",
-                fontSize: 24,
-                fontFamily: "SF UI Text",
-                fontWeight: 600,
-                lineHeight: "28px",
-                wordWrap: "break-word",
-                background: "none",
-              }}
-            >
+              className="Heading text-[#5C9AFF] text-[24px] font-semibold leading-[28px] break-words bg-none" >
               Difficulty Level
             </div>
             {/* Display Selected Level */}
-            <div
-              style={{
-                color: "#333232",
-                fontSize: 18,
-                fontFamily: 'SF UI Text',
-                marginTop: 8,
-              }}
-            >
+            <div className="text-[#333232] text-[18px]  mt-[8px]" >
               {selectedLevel}
             </div>
           </div>
@@ -117,6 +61,7 @@ const Difficulty = () => {
       <Dialog
         sx={{
           "& .MuiDialog-paper": {
+            width: '707px',
             borderRadius: '10px',
             border: '1px solid var(--logo-gr-Blue-to-pink, #D388FF)',
             background: "#FFF",
@@ -131,14 +76,9 @@ const Difficulty = () => {
         onClose={toggleDialog}
       >
         <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingTop: 24,
-            paddingRight: 24,
-          }}
+          className="flex justify-end pt-[24px] pr-[24px]"
         >
-          <div style={{ width: "fit-content" }}>
+          <div className="w-fit">
             <svg
               onClick={toggleDialog}
               xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +86,7 @@ const Difficulty = () => {
               height="32"
               viewBox="0 0 32 32"
               fill="none"
-              style={{ alignSelf: "flex-end", cursor: "pointer" }}
+              className="self-end cursor-pointer"
             >
               <path
                 d="M28.8336 3.16676C27.8211 2.1542 26.1795 2.1541 25.1669 3.16655L15.9987 12.3334L6.83302 3.16687C5.82052 2.15428 4.17885 2.15428 3.16635 3.16687V3.16687C2.15398 4.17933 2.15398 5.82075 3.16635 6.83321L12.3324 16L3.16635 25.1669C2.15398 26.1793 2.15398 27.8208 3.16635 28.8332V28.8332C4.17885 29.8458 5.82052 29.8458 6.83302 28.8332L15.9987 19.6667L25.1669 28.8335C26.1795 29.846 27.8211 29.8459 28.8336 28.8333V28.8333C29.846 27.8208 29.846 26.1793 28.8336 25.1668L19.6676 16L28.8336 6.83332C29.846 5.8208 29.846 4.17928 28.8336 3.16676V3.16676Z"
@@ -158,41 +98,26 @@ const Difficulty = () => {
 
         <DialogTitle
           style={{
-            textAlign: "center",
-            color: "#333232",
+            textAlign: 'center',
+            color: '#333232',
             fontSize: 32,
-            fontFamily: "SF UI Text",
+            fontFamily: 'SF UI Text',
             fontWeight: 600,
             padding: 0,
-          }}
-        >
+          }}        >
           Difficulty Level
         </DialogTitle>
         <div
-          style={{
-            padding: 20,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 8,
-          }}
+          className="p-5 flex flex-col items-center gap-2"
         >
-          <hr style={{ width: "85%", marginBottom: 24 }} />
+          <hr className="w-[85%] mb-6" />
 
           {/* Difficulty Options */}
           {["Beginner", "Intermediate", "Advanced"].map((level) => (
             <div
               key={level}
               onClick={() => handleSelection(level)}
-              style={{
-                width: "85%",
-                padding: "10px",
-                cursor: "pointer",
-                borderRadius: "8px",
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-              }}
+              className="w-[85%] p-2 cursor-pointer rounded-lg flex items-center gap-2"
             >
               <input
                 type="radio"
@@ -200,13 +125,9 @@ const Difficulty = () => {
                 value={level}
                 checked={selectedLevel === level}
                 onChange={() => handleSelection(level)}
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  accentColor: "#0072DC", // Custom color for modern browsers
-                }}
+                className="w-[20px] h-[20px] accent-[#0072DC]"
               />
-              <span style={{ fontSize: "16px", color: 'var(--Text-text-primary, #161616)', fontFamily: 'SF UI TEXT', fontWeight: selectedLevel === level ? "bold" : "400" }}>
+              <span className={`text-[16px] text-[#161616] font-[SF\ UI\ TEXT] ${selectedLevel === level ? 'font-bold' : 'font-normal'}`}>
                 {level}
               </span>
             </div>

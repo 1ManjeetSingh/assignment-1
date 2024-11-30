@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import './cards.css';
 
-import image1 from '../../assets/Group.svg';
+import image5 from '../../assets/Group.svg';
 
 const Questions = () => {
   const [open, setOpen] = useState(false);
@@ -34,57 +33,31 @@ const Questions = () => {
     }
     setOpen(!open); // Toggle the dialog open/close state
   };
-  
+
   const handleInputChange = (index, e) => {
     const newQuestions = [...questions];
     newQuestions[index] = e.target.value;
     setQuestions(newQuestions); // Update questions without resetting them
   };
-  
+
   const handleSaveQuestions = () => {
-    
+
     setQuestionsList([...questions.filter(q => q.trim() !== '')]);
-  
+
     toggleDialog(); // Close the dialog after saving
   };
-  
+
 
   return (
     <>
       <div
-        className="SelectionPanel"
-        style={{
-          width: 425.47,
-          height: 106,
-          paddingLeft: 24,
-          paddingRight: 24,
-          background: 'white',
-          boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.25)',
-          borderRadius: 10,
-          border: '2px #5C9AFF solid',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          gap: 16,
-          display: 'inline-flex'
-        }}
+        className="SelectionPanel hover:transform hover:scale-[1.01]  w-[425px] h-[106px] px-[24px] bg-white rounded-[10px] shadow-[0px_2px_12px_rgba(0,_0,_0,_0.25)] border-[2px] border-[#5C9AFF] inline-flex items-center justify-start gap-[16px] cursor-pointer"
         onClick={toggleDialog}
       >
         <div
-          className="Frame1000008202 cursor-pointer"
-          style={{
-            flex: '1 1 0',
-            height: 106,
-            paddingTop: 8,
-            paddingBottom: 8,
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            gap: 16,
-            display: 'flex',
-            background: "none",
-          }}
-        >
+          className="Frame1000008202 cursor-pointer flex-[1_1_0] h-[106px] pt-[8px] pb-[8px] justify-start items-center gap-[16px] flex bg-none" >
           <svg
-            style={{ width: 'fit-content', background: "white", }}
+            className='w-fit bg-white'
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -108,37 +81,13 @@ const Questions = () => {
             />
           </svg>
           <div
-            className="Content"
-            style={{
-              flex: 1,
-              height: '100%',
-              padding: 16,
-              borderRadius: 8,
-              display: 'flex',
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: 'center',
-              background: "white",
-            }}
+            className="cursor-pointer Content flex-1 h-full p-[16px] rounded-[8px] flex flex-col justify-center items-center bg-white"
           >
             <div
-              className="Heading flex flex-col justify-center"
-              style={{
-                color: '#5C9AFF',
-                fontSize: 24,
-                fontFamily: 'SF UI Text',
-                fontWeight: 600,
-                lineHeight: '28px',
-                wordWrap: 'break-word',
-                background: "none",
-              }}
-            >
-             {questionsList.length ? 'Custom questions' : 'Type custom interview questions'}
+              className="Heading text-[#5C9AFF] text-[24px] font-semibold leading-[28px] break-words bg-none" >
+              {questionsList.length ? 'Custom questions' : 'Type custom interview questions'}
             </div>
-            <div style={{color: "#333232",
-                fontSize: 18,
-                fontFamily: 'SF UI Text',
-                marginTop: 8,}}> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
+            <div className='text-[#333232] text-lg  mt-2'> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
           </div>
         </div>
       </div>
@@ -160,12 +109,9 @@ const Questions = () => {
         }}
       >
         <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end'
-          }}
+          className='flex justify-end'
         >
-          <div style={{ width: 'fit-content' }}>
+          <div className='w-fit'>
             <svg
               onClick={toggleDialog}
               xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +119,7 @@ const Questions = () => {
               height="32"
               viewBox="0 0 32 32"
               fill="none"
-              style={{ cursor: 'pointer' }}
+              className='cursor-pointer'
               aria-hidden="true"
             >
               <path
@@ -188,7 +134,6 @@ const Questions = () => {
             textAlign: 'center',
             color: '#333232',
             fontSize: 32,
-            fontFamily: 'SF UI Text',
             fontWeight: 600,
             padding: 0
           }}
@@ -197,73 +142,41 @@ const Questions = () => {
         </DialogTitle>
 
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div className='flex flex-col gap-4'>
 
-          <hr style={{ width: '100%', margin: '16px 0 24px 0' }} />
+          <hr className='w-full mt-4 mb-6' />
 
           {questions.map((question, index) => (
             <div
               key={index}
-              className="InputContainer"
-              style={{
-                padding: '16px 24px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-                borderRadius: '8px',
-          border: '0.5px solid var(--color-text--faint, #353535)',
-          background: 'var(--color---faint, #EBEBEB)',
-          }}
+              className="InputContainer px-6 py-4 flex items-center gap-4 rounded-lg border border-[0.5px] border-[#353535] bg-[#EBEBEB]"
+            >
+              <input
+                type="text"
+                placeholder={`Question ${index + 1}`}
+                value={question}
+                onFocus={() => handleFocus(index)}
+                onBlur={() => handleBlur(index)}
+                onChange={(e) => handleInputChange(index, e)}
+                className={`w-full h-9 text-[16px] rounded-md outline-none justify-start px-2 bg-[#EBEBEB] ${focusedInputs[index] ? 'border-b border-gray-500' : ''}`}
+              />
+              <button
+                className="searchBar w-fit bg-transparent cursor-pointer flex justify-center outline-none border-none"
+              >
+                <img src={image5} alt="" />
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div
+          className='mt-6 flex justify-center'
         >
-          <input
-            type="text"
-            placeholder={`Question ${index + 1}`}
-            value={question}
-            onFocus={() => handleFocus(index)}
-            onBlur={() => handleBlur(index)}
-            onChange={(e) => handleInputChange(index, e)}
-            style={{
-              width: '100%',
-              height: '36px',
-              fontSize: '16px',
-              borderRadius: '6px',
-              outline: 'none',
-              justifyItems: 'left',
-              padding: '0 8px',
-              borderBottom: focusedInputs[index] ? '1px solid grey' : 'none',
-              backgroundColor: 'var(--color---faint, #EBEBEB)',
-            }}
-          />
-          <button
-            className="searchBar"
-            style={{
-              width: 'fit-content',
-              background: 'transparent',
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'center', 
-              outline: 'none', 
-              border: 'none',
-            }}
-          >
-            <img src= {image1} alt="" />
+          <button onClick={handleSaveQuestions} className="ButtonsCta w-[137px] h-[56px] px-[48px] py-[16px] bg-[#0072DC] rounded-[30px] justify-center items-center gap-[16px] inline-flex outline-none border-none">
+            <div className="Text flex text-center text-white text-[18px] font-sans font-[400] break-words " >Save</div>
           </button>
         </div>
-      ))}
-      </div>
-
-      <div
-        style={{
-          marginTop: 24,
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <button onClick={handleSaveQuestions} className="ButtonsCta" style={{ width: 137, height: 56, paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, background: '#0072DC', borderRadius: 30, justifyContent: 'center', alignItems: 'center', gap: 16, display: 'inline-flex', outline: 'none', border: 'none', }}>
-          <div className="Text" style={{ display: 'flex', textAlign: 'center', color: 'white', fontSize: 18, fontFamily: 'SF UI  Text', fontWeight: '400', wordWrap: 'break-word' }}>Save</div>
-        </button>
-      </div>
-    </Dialog >
+      </Dialog >
     </>
   );
 };
