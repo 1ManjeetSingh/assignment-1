@@ -6,8 +6,9 @@ const ToggleButton = () => {
     <>
 
       <div className="LetsGetYouStarted text-center font-sf-ui text-[48px] font-bold leading-[56px] 
-      text-[#D388FF] break-words my-8 bg-gradient-to-br from-[#D388FF] via-[#D388FF] to-[#4B94F6] 
-      bg-clip-text text-transparent w-[900px]">
+      text-[#D388FF] break-words my-8 text-transparent w-[900px]" style={{
+          background: 'linear-gradient(325deg, #D388FF 21.06%, #4B94F6 83.52%)', backgroundClip: 'text'
+        }}>
         Let's get you started with scheduling your AI interview
       </div>
 
@@ -33,11 +34,10 @@ const ToggleButton = () => {
           {/* Non-Technical Button */}
 
           <button
-            className={`w-fit p-[16px_30px] text-[18px] flex items-center justify-center rounded-full font-medium transition duration-300 ease-in-out ${
-              selected === "nonTechnical"
+            className={`w-fit p-[16px_30px] text-[18px] flex items-center justify-center rounded-full font-medium transition duration-300 ease-in-out ${selected === "nonTechnical"
                 ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white focus:outline-none border-none"
                 : "bg-white text-gray-700 focus:outline-none border-none"
-            }`}            
+              }`}
             onClick={() => setSelected("nonTechnical")}
           >
             {selected === "nonTechnical" ? <svg className="toogleIcon w-[26px] h-[28.545px] mr-[10px] bg-none" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,11 +83,10 @@ const ToggleButton = () => {
 
           {/* Technical Button */}
           <button
-            className={`w-fit p-[16px_30px] text-[18px] flex items-center justify-center rounded-full font-medium transition duration-300 ease-in-out ${
-              selected === "technical"
+            className={`w-fit p-[16px_30px] text-[18px] flex items-center justify-center rounded-full font-medium transition duration-300 ease-in-out ${selected === "technical"
                 ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white focus:outline-none border-none"
                 : "bg-white text-gray-700 focus:outline-none border-none"
-            }`}            
+              }`}
             onClick={() => setSelected("technical")}
           >
             {selected === "technical" ? <svg className="toogleIcon w-[26px] h-[28.545px] mr-[10px] bg-none" width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
