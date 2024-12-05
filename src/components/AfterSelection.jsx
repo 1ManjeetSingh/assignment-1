@@ -2,12 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import Select from 'react-select';
-
 import image1 from "../assets/image1.png"
 import image2 from '../assets/Aspireit.png';
 import image3 from '../assets/Ellipse 1872.svg';
 import image4 from '../assets/Type=Layila.svg';
-import image5 from '../assets/Write.svg';
+import image5 from '../assets/Group.svg';
 
 
 
@@ -119,15 +118,12 @@ const AfterSelection = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-  // Cards Consts and functions
-
   const [openDifficulty, setOpenDifficulty] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState();
 
   const handleSelection = (level) => {
-    setSelectedLevel(level); // Update selected level
-    setOpenDifficulty(false); // Close dialog on selection
+    setSelectedLevel(level);
+    setOpenDifficulty(false);
   };
 
   const toggleDialogDifficulty = () => {
@@ -151,7 +147,8 @@ const AfterSelection = () => {
       color: '#161616',
       height: '48px',
       width: 'full',
-      fontSize: '16px',
+      minWidth: '520px',
+      fontSize: '18px',
       boxShadow: 'none',
       display: 'flex',
       justifySelf: 'center',
@@ -184,8 +181,9 @@ const AfterSelection = () => {
       zIndex: 999,
       top: 'auto',
       left: 'auto',
-      width: 'full',
-      maxWidth: '550px',
+      fontSize: '18px',
+      // width: 'full',
+      maxWidth: '520px',
       maxHeight: '300px',
       overflowY: 'auto',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -194,34 +192,31 @@ const AfterSelection = () => {
     placeholder: (provided) => ({
       ...provided,
       color: '#161616',
-      fontWeight: '400'
+      fontWeight: '400',
+      fontSize: '18px',
     }),
     singleValue: (provided) => ({
       ...provided,
       color: '#161616',
-      fontFamily: 'SF UI  Text',
       fontSize: '18px',
     }),
-    overflow: 'hidden',
+    // overflow: 'hidden',
   };
 
-
-  // Toggle the dialog visibility
   const toggleDialogDuration = () => {
     setOpenDuration(!openDuration);
   };
 
-  // Handle select change
   const handleChangeDuration = (selectedOption) => {
     setDuration(selectedOption.value);
     toggleDialogDuration();
   };
 
   const [openQuestions, setOpenQuestions] = useState(false);
-  const [questions, setQuestions] = useState(['', '', '']); // Initialize with three empty input fields
-  const [questionsList, setQuestionsList] = useState([]); // List to store added questions
+  const [questions, setQuestions] = useState(['', '', '']);
+  const [questionsList, setQuestionsList] = useState([]);
   const [focusedInputs, setFocusedInputs] = useState(
-    new Array(questions.length).fill(false) // Array to track focus state for each input
+    new Array(questions.length).fill(false)
   );
 
   const handleFocus = (index) => {
@@ -238,33 +233,32 @@ const AfterSelection = () => {
 
   const toggleDialogQuestions = () => {
     if (openQuestions) {
-      // Reset questions only if they are empty
       if (questions.every(q => q.trim() === '')) {
-        setQuestions(['', '', '']); // Reset only if no data has been entered
+        setQuestions(['', '', '']);
       }
     }
-    setOpenQuestions(!openQuestions); // Toggle the dialog open/close state
+    setOpenQuestions(!openQuestions);
   };
 
   const handleInputChange = (index, e) => {
     const newQuestions = [...questions];
     newQuestions[index] = e.target.value;
-    setQuestions(newQuestions); // Update questions without resetting them
+    setQuestions(newQuestions);
   };
 
   const handleSaveQuestions = () => {
 
     setQuestionsList([...questions.filter(q => q.trim() !== '')]);
 
-    toggleDialogQuestions(); // Close the dialog after saving
+    toggleDialogQuestions();
   };
 
 
 
 
   return (
-    <div className='.main-container '>
-      <div className="NavBar w-full h-full px-10 py-4 bg-white border border-[#D2D2D2] rounded-tl-[30px] rounded-tr-[30px] rounded-bl-none rounded-br-none backdrop-blur-[220px] flex justify-between items-center hover:cursor-pointer">
+    <div className='.main-container min-h-screen bg-[#F1F4F8]'>
+      <div className="NavBar w-full h-full px-10 py-4 bg-white border border-[#D2D2D2] backdrop-blur-[220px] flex justify-between items-center hover:cursor-pointer">
         <div className="logo-container w-[130px] h-[46px] relative  bg-[#FFF]">
           <div className="Rectangle7391 w-[130px] h-[46px] relative bg-[#0F0F36] rounded-[15px]" />
           <div className="logo w-[100px] h-[30.22px] absolute left-[15px] top-[8px] bg-[#0F0F36] rounded-[15px] flex justify-center items-center" >
@@ -272,15 +266,15 @@ const AfterSelection = () => {
             <img className="Group1000007770 bg-transparent w-[64.384px] h-[13.735px] shrink-0" src={image2} />
           </div>
         </div>
-        <div className="SearchBarContainer flex grow justify-center items-center gap-4 bg-white">
-          <div className='InputContainer flex justify-start items-center gap-4 h-[48px] max-w-[657px] pl-6 pr-6 pt-4 pb-4 bg-[#EBEBEB] shadow-[0px_0px_4px_rgba(0,_0,_0,_0.25)] rounded-[32px]' >
+        <div className="SearchBarContainer w-full flex grow justify-center items-center gap-4 bg-white">
+          <div className='InputContainer w-[90%] flex justify-start items-center gap-4 h-[48px] max-w-[657px] pl-6 pr-6 pt-4 pb-4 bg-[#EBEBEB] shadow-[0px_0px_4px_rgba(0,_0,_0,_0.25)] rounded-[32px]' >
             <div className='searchBar inline-flex items-center h-[34px] w-full max-w-[657px] bg-[#EBEBEB]'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" className={`w-[22px] h-[22px] shrink-0 rounded-full mr-[16px] ${isFocused1 ? 'transform scale-110 transition-transform duration-300' : ''}`}   >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" className={`w-[22px] h-[22px] shrink-0 rounded-full mr-[8px] ${isFocused1 ? 'transform scale-105 transition-transform duration-300' : ''}`}   >
                 <path d="M9.49996 2.75C8.16495 2.75 6.85991 3.14588 5.74989 3.88757C4.63986 4.62927 3.7747 5.68347 3.26381 6.91686C2.75292 8.15026 2.61925 9.50745 2.8797 10.8168C3.14015 12.1262 3.78302 13.3289 4.72702 14.2729C5.67102 15.2169 6.87375 15.8598 8.18311 16.1202C9.49248 16.3807 10.8497 16.247 12.0831 15.7361C13.3165 15.2252 14.3707 14.3601 15.1124 13.25C15.854 12.14 16.2499 10.835 16.2499 9.49996C16.2498 7.70979 15.5386 5.99298 14.2728 4.72714C13.0069 3.46131 11.2901 2.75011 9.49996 2.75Z" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" />
                 <path d="M14.666 14.668L18.3327 18.3346" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" />
               </svg>
               <input
-                className='justify-items-start px-2 w-full max-w-[657px] text-[#353535] font-[SF_UI_Text] text-[18px] py-[10px] my-[-10px] font-medium leading-[18px] border-0 bg-[#EBEBEB] focus:outline-none focus:text-[#353535]'
+                className='justify-items-start px-2 w-full max-w-[657px] text-[#353535] pb-[10px] pt-[8px] text-[18px] leading-[18px] border-0 bg-[#EBEBEB] focus:outline-none focus:text-[#353535]'
                 onClick={focusInput}
                 type="text" name='searchBar'
                 value={isFocused1 ? searchPhrase : ''}
@@ -294,7 +288,7 @@ const AfterSelection = () => {
         </div>
 
         <div className="Frame1000008205 flex justify-start items-center gap-6 w-fit bg-[#fff]" >
-          <div className="Frame1000008204 px-4 py-1 bg-[#EBEBEB] flex justify-start items-center gap-4 shadow-[0px_0px_6px_rgba(0,_0,_0,_0.25)] rounded-[40px] backdrop-blur-[4px]">
+          <div className="Frame1000008204 px-[16px] py-[4px] bg-[#EBEBEB] flex justify-start items-center shadow-[0px_0px_6px_rgba(0,_0,_0,_0.25)] rounded-[40px] backdrop-blur-[4px]">
             <div className="ButtonsNotification w-[44px] h-[44px] mr-[16px] relative bg-[#EBEBEB]" >
               <div className="Ellipse w-[44px] h-[44px] absolute left-0 top-0 bg-white rounded-full" />
               <div className="IconsBell w-[24px] h-[24px] absolute left-[10px] top-[10px] bg-white hover:transform hover:scale-[1.05] hover:transition-transform hover:duration-300" >
@@ -303,8 +297,8 @@ const AfterSelection = () => {
                 </svg>
               </div>
             </div>
-            <div className="Profile flex justify-start items-center bg-[#EBEBEB] hover:transform hover:scale-[1.05] hover:transition-transform hover:duration-300" >
-              <img className="AvatarPic w-[44px] min-w-[44px] mr-[-25px] h-[44px] bg-none rounded-full" src={image3} />
+            <div className="Profile flex justify-end items-center bg-[#EBEBEB] hover:transform hover:scale-[1.05] hover:transition-transform hover:duration-300" >
+              <img className="AvatarPic w-[44px] min-w-[44px] h-[44px] bg-none rounded-full" src={image3} />
             </div>
           </div>
           <div className="Ai w-[56px] h-[56px] bg-none" >
@@ -313,27 +307,27 @@ const AfterSelection = () => {
         </div>
       </div>
 
-      {/* //////////////////////////// */}
+
       <div className='flex flex-col justify-center items-center'>
-        <div className="LetsGetYouStarted text-center font-sf-ui text-[48px] font-bold leading-[56px] 
+        <div className="LetsGetYouStarted text-center text-[48px] font-bold leading-[56px] 
       text-[#D388FF] break-words my-8 text-transparent w-[900px]" style={{
             background: 'linear-gradient(325deg, #D388FF 21.06%, #4B94F6 83.52%)', backgroundClip: 'text'
           }}>
-          Let's get you started with scheduling your AI interview
+          {`Let's get you started with scheduling your AI interview`}
         </div>
 
         <div className="YouHaveSelected1024CandidatesForInterview w-[908px] text-center">
-          <span className=" text-[#161616] text-2xl font-sf-ui font-[400] leading-[1.2] break-words" >
+          <span className=" text-[#161616] text-2xl font-[400] leading-[1.2] break-words" >
             You have selected
           </span>
-          <span className="text-[#161616] text-2xl font-sf-ui font-[600] leading-[1.2] break-words">
+          <span className="text-[#161616] text-2xl font-[600] leading-[1.2] break-words">
             &nbsp;
           </span>
-          <span className="text-[#0072DC] text-2xl font-sf-ui font-[600] leading-[1.2] break-words" >
+          <span className="text-[#0072DC] text-2xl font-[600] leading-[1.2] break-words" >
             1024 candidates
           </span>
           &nbsp;
-          <span className=" text-[#161616] text-2xl font-sf-ui font-[400] leading-[1.2] break-words">
+          <span className=" text-[#161616] text-2xl font-[400] leading-[1.2] break-words">
             for interview.
           </span>
         </div>
@@ -442,8 +436,6 @@ const AfterSelection = () => {
           </div>
         </div>
       </div>
-      {/* ////////////////////////////////////////////// */}
-
       <div
         className="relative w-full max-w-8xl mx-auto"
         onMouseDown={handleMouseDown}
@@ -490,10 +482,6 @@ const AfterSelection = () => {
           ))}
         </div>
       </div>
-
-
-      {/* ///////////////////////////////// */}
-
     {/* ///////////Difficulty Card///////// */}
       <div className='DialogCards w-full flex justify-center gap-8 px-12 my-8'>
         <>
@@ -526,7 +514,7 @@ const AfterSelection = () => {
               <div
                 className="Content flex-1 h-full p-[16px] rounded-[8px] flex flex-col justify-center items-start bg-white " >
                 <div
-                  className="Heading text-[#5C9AFF] text-[24px] font-semibold leading-[28px] break-words bg-none" >
+                  className="Heading text-[#5C9AFF] text-[24px] leading-[28px] font-semibold  break-words bg-none" >
                   Difficulty Level
                 </div>
                 {/* Display Selected Level */}
@@ -536,7 +524,6 @@ const AfterSelection = () => {
               </div>
             </div>
           </div>
-
           {/* Dialog with Difficulty Selector */}
           <Dialog
             sx={{
@@ -581,7 +568,6 @@ const AfterSelection = () => {
                 textAlign: 'center',
                 color: '#333232',
                 fontSize: 32,
-                fontFamily: 'SF UI Text',
                 fontWeight: 600,
                 padding: 0,
               }}        >
@@ -591,7 +577,6 @@ const AfterSelection = () => {
               className="w-full flex flex-col items-center gap-2"
             >
               <hr className="w-[85%] my-6 mt-4" />
-
               {/* Difficulty Options */}
               {["Beginner", "Intermediate", "Advanced"].map((level) => (
                 <div
@@ -599,15 +584,18 @@ const AfterSelection = () => {
                   onClick={() => handleSelection(level)}
                   className="w-[85%] p-2 cursor-pointer rounded-lg flex items-center gap-2"
                 >
-                  <input
-                    type="radio"
-                    name="difficulty"
-                    value={level}
-                    checked={selectedLevel === level}
-                    onChange={() => handleSelection(level)}
-                    className="w-[20px] h-[20px] accent-[#0072DC]"
-                  />
-                  <span className={`text-[16px] text-[#161616] font-[SF\ UI\ TEXT] ${selectedLevel === level ? 'font-bold' : 'font-normal'}`}>
+                  <div className="relative w-6 pt-[2px]">
+                    <input
+                      type="radio"
+                      name="difficulty"
+                      value={level}
+                      checked={selectedLevel === level}
+                      onChange={() => handleSelection(level)}
+                      className="custom-radio"
+                    />
+                    <span className="custom-radio-circle"></span>
+                  </div>
+                  <span className={`text-[16px] text-[#161616] ${selectedLevel === level ? 'font-bold' : 'font-normal'}`}>
                     {level}
                   </span>
                 </div>
@@ -615,9 +603,7 @@ const AfterSelection = () => {
             </div>
           </Dialog>
         </>
-
           {/* ///////////Duration Card///////// */}
-
         <>
           {/* Selection Panel */}
           <div
@@ -639,7 +625,7 @@ const AfterSelection = () => {
                   className="Heading text-[#5C9AFF] text-[24px] font-semibold leading-[28px] break-words bg-none" >
                   Duration per question
                 </div>
-                <div className='text-[#333232] text-lg  mt-2 text-start'
+                <div className='text-[#333232] text-[18px] mt-[8px] text-start'
                 >{duration} {duration ? 'sec' : ''}</div>
               </div>
             </div>
@@ -713,9 +699,7 @@ const AfterSelection = () => {
             </div>
           </Dialog>
         </>
-
           {/* ///////////Questions Card///////// */}
-
         <>
           <div
             className="SelectionPanel hover:transform hover:scale-[1.01]  w-[425px] h-[106px] px-[24px] bg-white rounded-[10px] shadow-[0px_2px_12px_rgba(0,_0,_0,_0.25)] border-[2px] border-[#5C9AFF] inline-flex items-center justify-start gap-[16px] cursor-pointer"
@@ -754,7 +738,7 @@ const AfterSelection = () => {
                   className="Heading text-[#5C9AFF] text-[24px] font-semibold leading-[28px] break-words bg-none" >
                   {questionsList.length ? 'Custom questions' : 'Type custom interview questions'}
                 </div>
-                <div className='text-[#333232] text-lg  mt-2 text-start'> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
+                <div className='text-[#333232] text-[18px] mt-[8px] text-start'> {questionsList.length ? `${questionsList.length} Question${questionsList.length !== 1 ? 's' : ''} Added` : ''}</div>
               </div>
             </div>
           </div>
@@ -816,7 +800,7 @@ const AfterSelection = () => {
               {questions.map((question, index) => (
                 <div
                   key={index}
-                  className="InputContainer px-6 py-4 flex items-center gap-4 rounded-lg border border-[0.5px] border-[#353535] bg-[#EBEBEB]"
+                  className="InputContainer px-6 py-4 flex items-center gap-4 rounded-lg border-[0.5px] border-[#353535] bg-[#EBEBEB]"
                 >
                   <input
                     type="text"
@@ -840,22 +824,17 @@ const AfterSelection = () => {
               className='mt-6 flex justify-center'
             >
               <button onClick={handleSaveQuestions} className="ButtonsCta w-[137px] h-[56px] px-[48px] py-[16px] bg-[#0072DC] rounded-[30px] justify-center items-center gap-[16px] inline-flex outline-none border-none">
-                <div className="Text flex text-center text-white text-[18px] font-sans font-[400] break-words " >Save</div>
+                <div className="Text flex text-center text-white text-[18px] font-[400] break-words " >Save</div>
               </button>
             </div>
           </Dialog >
         </>
       </div>
-
-      {/* //////////////////////////// */}
       <div className='flex w-full justify-end px-12 pb-12'>
-        <div className=" ButtonsCta max-w-[251px] h-14 px-12 py-4 rounded-[30px] justify-center items-center gap-4 inline-flex hover:cursor-pointer" style={{ background: 'var(--AI-Main-color, linear-gradient(135deg, #002DBF -1.89%, #4396F7 45.88%, #FF9BD2 76.85%, #C9FFFC 108.11%))' }}>
+        <div className=" ButtonsCta max-w-[251px] h-14 px-12 py-4 rounded-[30px] justify-center items-center gap-4 inline-flex hover:cursor-pointer bg-question_gradient">
           <div className="Text text-center text-white text-lg font-semibold leading-[18px]">Take AI interview</div>
         </div>
       </div>
-
-      {/* ////////////////////////////////////////// */}
-
     </div>
   )
 }

@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #007aff;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-radio:checked {
+  border-color: #007aff; 
+}
+
+.custom-radio:checked + .custom-radio-circle {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background-color: #007aff; 
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 2px;
+}
+
+.custom-radio:hover {
+  border-color: #0056cc;
+}
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
