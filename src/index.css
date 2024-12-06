@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .custom-radio {
   appearance: none;
   -webkit-appearance: none;

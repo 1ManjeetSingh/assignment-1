@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/sf-ui-text-2');
 
-*{
+body{
   width: 100%;
   justify-items: center; 
   font-family: "SF UI Text";

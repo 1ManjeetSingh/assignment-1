@@ -257,7 +257,7 @@ const AfterSelection = () => {
 
 
   return (
-    <div className='.main-container min-h-screen w-full bg-[#F1F4F8]'>
+    <div className='.main-container min-h-screen bg-[#F1F4F8]'>
       <div className="NavBar w-full h-full px-10 py-4 bg-white border border-[#D2D2D2] backdrop-blur-[220px] flex justify-between items-center hover:cursor-pointer">
         <div className="logo-container w-[130px] h-[46px] relative  bg-[#FFF]">
           <div className="Rectangle7391 w-[130px] h-[46px] relative bg-[#0F0F36] rounded-[15px]" />
@@ -831,8 +831,8 @@ const AfterSelection = () => {
         </>
       </div>
       <div className='flex w-full justify-end px-12 pb-12'>
-      <div class="ButtonsCta max-w-[251px] h-14 px-12 py-4 rounded-[30px] justify-center items-center gap-4 inline-flex hover:cursor-pointer" style={{background: 'var(--AI-Main-color, linear-gradient(135deg, #002DBF -1.89%, #4396F7 45.88%, #FF9BD2 76.85%, #C9FFFC 108.11%))'}}>
-            <div class="Text text-center text-white text-lg font-semibold leading-[18px]">Take AI interview</div>
+        <div className=" ButtonsCta max-w-[251px] h-14 px-12 py-4 rounded-[30px] justify-center items-center gap-4 inline-flex hover:cursor-pointer bg-question_gradient">
+          <div className="Text text-center text-white text-lg font-semibold leading-[18px]">Take AI interview</div>
         </div>
       </div>
     </div>
