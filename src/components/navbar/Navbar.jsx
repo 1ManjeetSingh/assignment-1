@@ -197,7 +197,7 @@ const Navbar = () => {
 
             {/*------- Center Card --------- */}
 
-            <div className='flex justify-between items-center px-[50px] py-[56px]'>
+            <div className='flex justify-between items-center px-[50px] py-[32px]'>
                 <div className="w-full gap-6">
                     <div>
                         <div className="w-full h-full flex justify-between items-center px-4">
@@ -235,7 +235,7 @@ const Navbar = () => {
                         >
                             {/* Video Container */}
                             <div
-                                className={`relative h-[333px] w-full aspect-video bg-black rounded-md flex items-center justify-center transition-all duration-300 ${isTranscriptVisible ? "w-[100%]" : "w-[50%]"
+                                className={`relative h-[333px] w-full max-w-[820px] aspect-video bg-black rounded-md flex items-center justify-center transition-all duration-300 ${isTranscriptVisible ? "w-[100%]" : "w-[50%]"
                                     }`}
                             >
                                 {!isPlaying && (
@@ -318,7 +318,7 @@ const Navbar = () => {
                         </div>
                         {/* Question Section */}
                         <div>
-                            <div className="mb-6">
+                            <div className="mb-4">
 
                                 <div className="Text text-[#6f6f6f] text-2xl font-semibold font-['SF UI  Text'] leading-7">
                                     {dataGroup[0].heading}
@@ -353,7 +353,7 @@ const Navbar = () => {
 
                                     {/* Progress Bar */}
                                     <div className="flex justify-center w-[142px] items-center relative mx-8">
-                                        <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="absolute inset-0 flex items-start justify-center">
                                             <HalfCircleChart percentage={dataGroup[1].level} />
                                         </div>
                                     </div>
