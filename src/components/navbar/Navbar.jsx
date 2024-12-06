@@ -223,7 +223,7 @@ const Navbar = () => {
                                             </g>
                                         </svg>
                                     )}
-                                    {isTranscriptVisible ? "Hide Transcript" : "Show Transcript"}
+                                    {isTranscriptVisible ? "Show Transcript" : "Show Transcript"}
                                 </div>
                             </div>
                         </div>
